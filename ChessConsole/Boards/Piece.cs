@@ -10,14 +10,13 @@ namespace Boards
         public Board  Board { get; protected set; }
 
         //Construcors
-        public Piece(Position position, Color color, Board board)
+        public Piece(Color color, Board board)
         {
-            Position = position;
+            Position = null;
             Color = color;
             QtMoviments = 0;
             Board = board;
         }
 
-        
     }
 }
