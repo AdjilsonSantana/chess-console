@@ -1,5 +1,5 @@
 ﻿
-namespace ChessConsole.Boards
+namespace Boards
 {
     class Position
     {
