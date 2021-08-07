@@ -25,9 +25,35 @@ namespace Boards
         //After that give the piece the new position. 
         public void InsertPiece(Piece piece, Position position)
         {
+            if (ExistPiece(position))
+            {
+                throw new BoardException("Position field! You can´t put 2 pieces in the same position ");
+            }
             Pieces[position.Line, position.Column] = piece;
             piece.Position = position;
         }
 
+        public bool ValidPosition(Position pos)
+        {
+            if (pos.Line <0 || pos.Line > Lines || pos.Column <0 || pos.Column > Columns)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public void ValidatingPosition(Position pos)
+        {
+            if (!ValidPosition(pos))
+            {
+                throw new BoardException($"Invalid position. Available positions: 0 to {Lines}");
+            }
+        }
+
+        public bool ExistPiece(Position pos)
+        {
+            ValidatingPosition(pos);
+            return Piece(pos.Line,pos.Column) != null;
+        }
     }
 }
