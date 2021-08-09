@@ -1,4 +1,7 @@
 ﻿
+using Chess;
+using System;
+
 namespace Boards
 {
     class Board
@@ -14,6 +17,11 @@ namespace Boards
             Lines = lines;
             Columns = columns;
             Pieces = new Piece[lines,columns];
+        }
+
+        internal void InsertPiece(Tower tower)
+        {
+            throw new NotImplementedException();
         }
 
         public Piece Piece(int line, int column)

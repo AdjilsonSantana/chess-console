@@ -25,7 +25,8 @@ namespace ChessConsole
                     }
                     else
                     {
-                        Console.Write(board.Piece(i,j) + " ");
+                        Screen.PrintPiece(board.Piece(i, j));
+                        Console.Write(" ");
                     }
                     
                 }
@@ -33,6 +34,21 @@ namespace ChessConsole
             }
 
             Console.WriteLine("  a b c d e f g h");
+        }
+
+        public static void PrintPiece(Piece piece)
+        {
+            if (piece.Color== Color.White)
+            {
+                Console.Write(piece);
+            }
+            else
+            {
+                ConsoleColor c = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write(piece);
+                Console.ForegroundColor = c;
+            }
         }
     }
 }
