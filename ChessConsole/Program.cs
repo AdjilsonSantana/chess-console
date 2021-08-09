@@ -10,12 +10,9 @@ namespace ChessConsole
         {
             try
             {
-                Board b = new Board(8, 8);
+                ChessPosition c = new ChessPosition('a', 1);
 
-                b.InsertPiece(new King(Color.Black, b), new Position(5, 1));
-                b.InsertPiece(new King(Color.Black, b), new Position(5, 1));
-
-                Screen.PrintBoard(b);
+                Console.WriteLine(c.ToPosition());
             }
             catch (BoardException e)
             {
